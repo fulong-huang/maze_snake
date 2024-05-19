@@ -1,11 +1,13 @@
 import pygame
 from window import Window
+from maze import Maze
 
 
 def main():
     window = Window()
     running = True
     clock = pygame.time.Clock()
+    maze = Maze(200, 100, 8, 6, 50, window)
 
     while running:
         clock.tick(10)
@@ -13,7 +15,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         window.clear()
-        window.draw_square(300, 200, 100, 100)
+        maze.draw()
         window.draw()
     print("Exit")
 
