@@ -16,6 +16,16 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    snake.change_direction((-1, 0))
+                if event.key == pygame.K_a:
+                    snake.change_direction((0, -1))
+                if event.key == pygame.K_s:
+                    snake.change_direction((1, 0))
+                if event.key == pygame.K_d:
+                    snake.change_direction((0, 1))
+        snake.move()
         window.clear()
         maze.draw()
         snake.draw()
