@@ -22,10 +22,10 @@ class Window:
     def draw_line(self, point1, point2, color=_WALL):
         pygame.draw.line(self._canvas, color, point1, point2)
 
-    def draw_rect(self, x, y, width, height, color=_FRUIT):
+    def draw_rect(self, x, y, width, height, color=_SNAKE):
         pygame.draw.rect(self._canvas, color, [x, y, width, height])
 
-    def draw_circle(self, x, y, radius, color=_SNAKE):
+    def draw_circle(self, x, y, radius, color=_FRUIT):
         pygame.draw.circle(self._canvas, color, (x, y), radius)
 
 

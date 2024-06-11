@@ -9,10 +9,11 @@ def main():
     running = True
     clock = pygame.time.Clock()
     maze = Maze(50, 50, 5, 7, 100, window)
-    snake = Snake(50, 50, 25, 20, window)
+    snake = Snake(50, 50, 5*4, 7*4, 25, 20, window)
 
+    tick_time = 10
     while running:
-        clock.tick(10)
+        clock.tick(tick_time)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -25,6 +26,12 @@ def main():
                     snake.change_direction((1, 0))
                 if event.key == pygame.K_d:
                     snake.change_direction((0, 1))
+
+                if event.key == pygame.K_SPACE:
+                    tick_time = 30
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    tick_time = 10
         snake.move()
         window.clear()
         maze.draw()
