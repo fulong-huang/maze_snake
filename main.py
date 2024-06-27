@@ -8,8 +8,8 @@ def main():
     window = Window()
     running = True
     clock = pygame.time.Clock()
-    maze = Maze(50, 50, 5, 7, 100, window)
-    snake = Snake(50, 50, 5*4, 7*4, 25, 20, window)
+    maze = Maze(50, 50, 5, 7, 4, 4, 100, window)
+    snake = Snake(50, 50, 5*4, 7*4, 25, 20, window, maze)
 
     tick_time = 10
     while running:
