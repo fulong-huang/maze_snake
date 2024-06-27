@@ -29,4 +29,15 @@ class Window:
         pygame.draw.circle(self._canvas, color, (x, y), radius)
 
 
+    def draw_text(self, txt, width, height):
+        green = (0, 255, 0)
+        blue = (0, 0, 128)
+        font = pygame.font.Font('freesansbold.ttf', 50)
+        text = font.render(txt, True, green, blue)
+        textRect = text.get_rect()
+        textRect.center = (width//2, height//2)
+        self._canvas.blit(text, textRect)
+
+
+
 

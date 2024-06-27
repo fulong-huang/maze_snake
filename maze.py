@@ -17,6 +17,22 @@ class Maze:
         self._create_cells()
         self._create_maze()
 
+    def reset(self):
+        self._cells = []
+        self._create_cells()
+        self._create_maze()
+
+
+    def remove_outer_walls(self):
+        for i in range(self._rows):
+            self._cells[i][0].left = False
+        for i in range(self._rows):
+            self._cells[i][-1].right = False
+
+        for i in range(self._cols):
+            self._cells[0][i].top = False
+        for i in range(self._cols):
+            self._cells[-1][i].bot = False
     
     def collid_with_wall(self, start, end):
         start_row = start[0] // self._sub_rows

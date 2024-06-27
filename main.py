@@ -18,6 +18,11 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
             if event.type == pygame.KEYDOWN:
+                if snake.win or snake.lose:
+                    snake.reset()
+                    maze.reset()
+                elif snake.running == False:
+                    snake.running = True
                 if event.key == pygame.K_w:
                     snake.change_direction((-1, 0))
                 if event.key == pygame.K_a:
@@ -32,7 +37,8 @@ def main():
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_SPACE:
                     tick_time = 10
-        snake.move()
+        if snake.running:
+            snake.move()
         window.clear()
         maze.draw()
         snake.draw()
